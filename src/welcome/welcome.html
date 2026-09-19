@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./welcome.css" />
+  </head>
+
+  <body>
+    <main class="welcome">
+      <header class="header">
+        <h1 class="title">DSA <span>Sync</span>Flow</h1>
+        <p class="caption">Automatically sync your code from LeetCode to GitHub</p>
+      </header>
+
+      <div class="content">
+        <!-- Left: Stats -->
+        <section id="commit_mode" class="panel stats-panel">
+          <div class="stats-card">
+            <div class="total-stat">
+              <span class="stat-label">Problems Solved</span>
+              <span id="p_solved" class="stat-value">0</span>
+            </div>
+
+            <div class="difficulty-stats">
+              <div class="difficulty">
+                <span class="difficulty-label easy">Easy</span>
+                <span id="p_solved_easy" class="difficulty-value">0</span>
+              </div>
+
+              <div class="difficulty">
+                <span class="difficulty-label medium">Medium</span>
+                <span id="p_solved_medium" class="difficulty-value">0</span>
+              </div>
+
+              <div class="difficulty">
+                <span class="difficulty-label hard">Hard</span>
+                <span id="p_solved_hard" class="difficulty-value">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-request">
+            <span>Want more features?</span>
+            <a id="feature_URL" href="#" target="_blank" rel="noopener noreferrer">
+              Request a feature
+            </a>
+          </div>
+        </section>
+
+        <!-- Right: Repository setup -->
+        <section id="hook_mode" class="panel setup-panel">
+          <div class="setup-header">
+            <h2>Get started</h2>
+            <p>Choose where your solutions should be synced.</p>
+          </div>
+
+          <div class="form">
+            <label for="type">Repository</label>
+
+            <select id="type">
+              <option value="">Pick an option</option>
+              <option value="new">Create a new Private Repository</option>
+              <option value="link">Link an Existing Repository</option>
+            </select>
+
+            <label for="name">Repository Name</label>
+
+            <input autocomplete="off" id="name" placeholder="e.g. leetcode-solutions" type="text" />
+
+            <button id="hook_button" class="button button-primary" disabled>Get Started</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Status messages -->
+      <div class="status-area">
+        <p hidden id="error" class="status status-error"></p>
+        <p hidden id="success" class="status status-success"></p>
+
+        <p hidden id="unlink" class="unlink">
+          Linked the wrong repo?
+          <a href="#">Unlink</a>.
+        </p>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="social-links">
+          <!-- GitHub -->
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.16c-3.2.7-3.87-1.36-3.87-1.36-.53-1.35-1.28-1.71-1.28-1.71-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.15 1.18A10.9 10.9 0 0 1 12 7.18c.97 0 1.95.13 2.86.38 2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.77.11 3.06.73.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
+              />
+            </svg>
+          </a>
+
+          <!-- LinkedIn -->
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM3.54 20.45H7.1V8.99H3.54v11.46ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z"
+              />
+            </svg>
+          </a>
+
+          <!-- Email -->
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Email" title="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"
+              />
+            </svg>
+          </a>
+
+          <!-- Website -->
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Website"
+            title="Website"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.92 9h-3.01a15.7 15.7 0 0 0-1.18-5.03A8.03 8.03 0 0 1 18.92 11ZM12 4c.83 1.2 1.51 3.43 1.78 7h-3.56c.27-3.57.95-5.8 1.78-7ZM9.27 5.97A15.7 15.7 0 0 0 8.09 11H5.08a8.03 8.03 0 0 1 4.19-5.03ZM5.08 13h3.01c.15 1.95.56 3.72 1.18 5.03A8.03 8.03 0 0 1 5.08 13Zm6.92 7c-.83-1.2-1.51-3.43-1.78-7h3.56c-.27 3.57-.95 5.8-1.78 7Zm2.73-1.97A15.7 15.7 0 0 0 15.91 13h3.01a8.03 8.03 0 0 1-4.19 5.03Z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <p class="copyright">
+          Made With <span class="heart">♥</span> by
+          <a href="#" target="_blank" rel="noopener noreferrer"> SpoiledUnknown </a>
+
+          <span class="separator">||</span>
+
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Star repository"
+            title="Star repository"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="#f5c542"
+                d="m12 2.5 2.94 5.96 6.58.96-4.76 4.64 1.12 6.56L12 17.52l-5.88 3.1 1.12-6.56-4.76-4.64 6.58-.96L12 2.5Z"
+              />
+            </svg>
+          </a>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="./welcome.ts"></script>
+  </body>
+</html>

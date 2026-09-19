@@ -1,0 +1,424 @@
+:root {
+  color-scheme: dark;
+
+  --background: #0d0d0f;
+  --surface: #151518;
+  --surface-hover: #1b1b20;
+  --border: #29292f;
+
+  --text: #f2f2f3;
+  --text-muted: #8f8f98;
+
+  --accent: #ff6c0a;
+  --accent-hover: #ff7d27;
+
+  --easy: #5cb85c;
+  --medium: #f0ad4e;
+  --hard: #d9534f;
+
+  --danger: #e05252;
+  --danger-hover: #ef6262;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 340px;
+  min-height: 300px;
+
+  background: var(--background);
+  color: var(--text);
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 14px;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 300px;
+
+  padding: 28px 24px 18px;
+}
+
+/* Header */
+
+.header {
+  text-align: center;
+}
+
+#title {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+}
+
+#title span {
+  color: var(--accent);
+}
+
+#caption {
+  margin: 7px 0 0;
+
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Modes */
+
+.mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 30px;
+}
+
+.onboarding {
+  max-width: 260px;
+  margin: 0 0 18px;
+
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Buttons */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 38px;
+  padding: 0 17px;
+
+  border: 1px solid transparent;
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.button-primary {
+  background: var(--text);
+  color: #101012;
+}
+
+.button-primary:hover {
+  background: #ffffff;
+}
+
+.button-secondary {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.button-secondary:hover {
+  background: var(--surface-hover);
+}
+
+.button-danger {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--danger);
+}
+
+.button-danger:hover {
+  background: rgba(224, 82, 82, 0.08);
+  border-color: rgba(224, 82, 82, 0.35);
+  color: var(--danger-hover);
+}
+
+.button-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Repository / stats */
+
+.stats-card {
+  width: 100%;
+  padding: 18px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.repository {
+  overflow: hidden;
+
+  margin: 0 0 18px;
+
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.total-stat {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.stat-value {
+  color: var(--text);
+  font-size: 24px;
+  font-weight: 650;
+}
+
+.difficulty-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 15px;
+}
+
+.difficulty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.difficulty + .difficulty {
+  border-left: 1px solid var(--border);
+}
+
+.difficulty-label {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.difficulty-value {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.easy {
+  color: var(--easy);
+}
+
+.medium {
+  color: var(--medium);
+}
+
+.hard {
+  color: var(--hard);
+}
+
+#reset_stats {
+  margin-top: 14px;
+}
+
+/* Reset confirmation */
+
+.confirmation {
+  width: 100%;
+  margin-top: 12px;
+  padding: 15px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+.confirmation p {
+  margin: 0 0 13px;
+
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Feature request */
+
+.feature-request {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  margin-top: 22px;
+
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.feature-request a {
+  color: var(--accent);
+}
+
+.feature-request a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+/* Footer */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  color: var(--text-muted);
+
+  border-radius: 6px;
+
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.social-links a:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.social-links svg {
+  width: 15px;
+  height: 15px;
+}
+
+.copyright {
+  margin: 12px 0 0;
+
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.copyright span[aria-label="love"] {
+  color: var(--accent);
+}
+
+.copyright a {
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.copyright a:hover {
+  color: var(--text);
+}
+
+.separator {
+  margin: 0 5px;
+  opacity: 0.5;
+}
+
+.copyright a[aria-label="Star repository"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+}
+
+.copyright a[aria-label="Star repository"] svg {
+  width: 13px;
+  height: 13px;
+}
+
+.copyright a[aria-label="Star repository"]:hover {
+  filter: brightness(1.15);
+}

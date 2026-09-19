@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "DSA-SyncFlow",
+  "description": "Automatically sync your LeetCode and GeeksforGeeks solutions to GitHub",
+  "version": "1.0.0",
+  "author": "SpoiledUnknown",
+  "homepage_url": "https://github.com/SpoiledUnknown/DSA-SyncFlow",
+  "action": {
+    "default_icon": "assets/icons/icon48.png",
+    "default_popup": "src/popup/popup.html",
+    "default_title": "DSA-SyncFlow - Sync solutions to GitHub"
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "src/background/background.js",
+    "type": "module"
+  },
+  "permissions": ["unlimitedStorage", "storage", "webNavigation"],
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/*"],
+      "js": ["src/content/leetcode/leetcode.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["src/github/authentication.js"]
+    },
+    {
+      "matches": ["https://practice.geeksforgeeks.org/*"],
+      "js": ["src/content/geeksforgeeks/geeksforgeeks.js"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
