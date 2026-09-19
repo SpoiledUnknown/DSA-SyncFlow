@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  Created with ❤️ by <strong>SpoiledUnknown</strong> | Based on <a href="https://github.com/arunbhardwaj/LeetHub-2.0">LeetHub v2</a>
+  Created with ❤️ by <strong>SpoiledUnknown</strong> | Based on <a href="https://github.com/arunbhardwaj/LeetHub-2.0" target="_blank">LeetHub v2</a>
 </p>
 
 ---
